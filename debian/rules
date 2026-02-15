@@ -1,0 +1,41 @@
+#!/usr/bin/make -f
+
+SHELL := /bin/bash
+
+override_dh_autoreconf:
+
+override_dh_auto_configure:
+	mkdir -p build
+	pushd build && \
+		cmake \
+			.. \
+			-DBUILD_SHARED_LIBS=ON \
+			-DCMAKE_BUILD_TYPE=Release \
+			-DCMAKE_INSTALL_LIBDIR=/usr/lib/${DEB_HOST_MULTIARCH} \
+			-DCMAKE_INSTALL_PREFIX=/usr \
+			-DLEVELDB_BUILD_BENCHMARKS=OFF \
+			-DLEVELDB_BUILD_TESTS=OFF \
+			-DCMAKE_POLICY_VERSION_MINIMUM=3.5 && \
+	popd
+
+override_dh_auto_build:
+	pushd build && \
+		cmake \
+			--build . \
+			--parallel 10 \
+			--config Release && \
+	popd
+
+override_dh_auto_install:
+	pushd build && \
+		export DESTDIR=../debian/tmp && \
+		cmake \
+			--install . && \
+	popd
+
+override_dh_auto_test:
+
+override_dh_auto_clean:
+
+%:
+	dh $@

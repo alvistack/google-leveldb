@@ -1,0 +1,42 @@
+Source: leveldb
+Section: libs
+Priority: optional
+Standards-Version: 4.5.0
+Maintainer: Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
+Homepage: https://github.com/google/leveldb
+Vcs-Browser: https://github.com/alvistack/google-leveldb
+Vcs-Git: https://github.com/alvistack/google-leveldb.git
+Build-Depends:
+ debhelper,
+ debhelper-compat (= 10),
+ cmake4,
+ libsnappy-dev,
+
+Package: libleveldb1
+Section: libs
+Architecture: amd64
+Description: Fast key-value storage library
+ LevelDB is a fast key-value storage library written at Google that
+ provides an ordered mapping from string keys to string values.
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+
+Package: libleveldb1d
+Section: libs
+Architecture: amd64
+Description: Fast key-value storage library
+ This is a transitional package. It can safely be removed.
+Depends:
+ libleveldb1 (= ${source:Version}),
+
+Package: libleveldb-dev
+Section: libdevel
+Architecture: amd64
+Description: Fast key-value storage library (development files)
+ This package provides the development files.
+Depends:
+ ${misc:Depends},
+ libleveldb1 (= ${source:Version}),

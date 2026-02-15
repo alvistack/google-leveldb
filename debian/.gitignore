@@ -1,0 +1,9 @@
+*.substvars
+*debhelper*
+.debhelper
+autoreconf.*
+files
+libleveldb-dev
+libleveldb1
+libleveldbd
+tmp

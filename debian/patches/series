@@ -1,0 +1,5 @@
+0001-Allow-leveldbjni-build.patch
+0002-Added-a-DB-SuspendCompations-and-DB-ResumeCompaction.patch
+0003-allow-Get-calls-to-avoid-copies-into-std-string.patch
+0004-bloom_test-failure-on-big-endian-archs.patch
+0006-revert-no-rtti.patch

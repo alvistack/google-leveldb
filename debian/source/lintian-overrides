@@ -1,0 +1,4 @@
+leveldb source: file-without-copyright-information
+leveldb source: no-debian-changes
+leveldb source: not-binnmuable-any-depends-any
+leveldb source: weak-library-dev-dependency
